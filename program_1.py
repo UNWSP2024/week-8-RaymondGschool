@@ -5,15 +5,22 @@
 
 # Add your logic starting on line 11
 
-def initials_generator(personsName):
+def initials_generator(personsName : str) -> str:
 
     personsInitials = ""
     #    Add your logic here
 
+    personsNames: list[str] = personsName.split(" ")
+
+    for name in personsNames:
+        initial: str = name[0]
+        personsInitials += f"{initial}. "
+
     return personsInitials.strip()
 
-personsName = input('Enter the users first, middle, and last name')
+if __name__ == "__main__":
+    personsName = input('Enter the users first, middle, and last name. ')
 
-initials = initials_generator(personsName)
+    initials = initials_generator(personsName)
 
-print(initials)
+    print(initials)
